@@ -1,0 +1,1 @@
+﻿public sealed record CreateEmailJobRequest(string Username, int SecondsInterval);
