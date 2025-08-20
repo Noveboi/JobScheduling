@@ -3,6 +3,9 @@ using Quartz;
 
 namespace JobScheduling.RestApi.Jobs;
 
+/// <summary>
+/// This job interacts with the app's dependency injection, simple as that!
+/// </summary>
 internal sealed class EmailJob(IEmailService emailService) : IJob
 {
     public static JobKey GetKey(string username)
