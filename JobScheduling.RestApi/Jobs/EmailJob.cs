@@ -15,7 +15,7 @@ internal sealed class EmailJob(IEmailService emailService) : IJob
     
     public async Task Execute(IJobExecutionContext context)
     {
-        if (!context.JobDetail.JobDataMap.TryGetString("username", out var username))
+        if (!context.MergedJobDataMap.TryGetString("username", out var username))
         {
             throw new InvalidOperationException("Email job requires a username!");
         }
