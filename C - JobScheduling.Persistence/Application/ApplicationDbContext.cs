@@ -22,7 +22,7 @@ internal sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext
 
         userJobBuilder.HasKey(x => x.Id);
         userJobBuilder.Property(x => x.Id).ValueGeneratedNever();
-        userJobBuilder.Property(x => x.Key).HasMaxLength(100);
+        userJobBuilder.Property(x => x.JobKey).HasMaxLength(100);
         userJobBuilder.Property(x => x.Description).HasMaxLength(200);
 
         userJobBuilder
