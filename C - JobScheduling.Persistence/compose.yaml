@@ -1,0 +1,14 @@
+﻿services: 
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    ports:
+      - "57312:1433"
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: SuperS3curePassword!
+    volumes:
+      - job-scheduling-mssql:/var/opt/mssql/data
+        
+volumes:
+  job-scheduling-mssql:
