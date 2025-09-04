@@ -30,7 +30,7 @@ internal static class UserEndpoints
             : Results.NotFound($"User with ID `{id}` does not exist");
     }
 
-    private sealed record AddUserRequest(string Name);
+    private sealed record AddUserRequest(string Name, string Email);
     private static async Task<IResult> AddUser(
         [FromBody] AddUserRequest req,
         [FromServices] ApplicationDbContext context,
@@ -41,7 +41,7 @@ internal static class UserEndpoints
             return Results.Conflict($"Name '{req.Name}' already exists");
         }
 
-        var user = new User { Name = req.Name };
+        var user = new User { Name = req.Name, EmailAddress = req.Email };
 
         context.Users.Add(user);
         await context.SaveChangesAsync(ct);
