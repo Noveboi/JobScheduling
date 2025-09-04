@@ -17,6 +17,7 @@ internal sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext
         userBuilder.HasKey(x => x.Id);
         userBuilder.Property(x => x.Id).ValueGeneratedNever();
         userBuilder.Property(x => x.Name).HasMaxLength(50);
+        userBuilder.Property(x => x.EmailAddress).HasMaxLength(250);
 
         var userJobBuilder = modelBuilder.Entity<UserJob>();
 
