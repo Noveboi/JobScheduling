@@ -1,6 +1,7 @@
 ﻿using JobScheduling.Persistence.Application.Email;
 using JobScheduling.Persistence.Endpoints.Health;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace JobScheduling.Persistence.Application.Extensions;
 
@@ -8,6 +9,10 @@ public static class NotImportantDependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddSerilog(x => x
+            .ReadFrom.Configuration(configuration)
+            .WriteTo.Console());
+        
         services.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(configuration.GetDatabaseConnectionString()));
         services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("Database");
 

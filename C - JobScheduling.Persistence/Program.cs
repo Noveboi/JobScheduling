@@ -1,6 +1,7 @@
 using JobScheduling.Persistence.Application.Extensions;
 using JobScheduling.Persistence.Endpoints;
 using Quartz;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddQuartz(options =>
 
 var app = builder.Build();
 
+app.UseSerilogRequestLogging();
 app.MapHealthChecks("health");
 app.MapUserEndpoints();
 app.MapJobEndpoints();
