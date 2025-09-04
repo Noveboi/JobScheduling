@@ -1,4 +1,5 @@
 using JobScheduling.Persistence.Application.Extensions;
+using JobScheduling.Persistence.Endpoints;
 using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,5 +20,7 @@ builder.Services.AddQuartz(options =>
 var app = builder.Build();
 
 app.MapHealthChecks("health");
+app.MapUserEndpoints();
+app.MapJobEndpoints();
 
 app.Run();
