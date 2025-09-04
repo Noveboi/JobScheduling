@@ -1,4 +1,5 @@
-﻿using JobScheduling.Persistence.Endpoints.Health;
+﻿using JobScheduling.Persistence.Application.Email;
+using JobScheduling.Persistence.Endpoints.Health;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobScheduling.Persistence.Application.Extensions;
@@ -9,6 +10,10 @@ public static class NotImportantDependencyInjection
     {
         services.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(configuration.GetDatabaseConnectionString()));
         services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("Database");
+
+        services.Configure<SmtpSettings>(configuration.GetSection("Smtp"));
+        services.AddTransient<IEmailService, EmailService>();
+        
         return services;
     }
 }

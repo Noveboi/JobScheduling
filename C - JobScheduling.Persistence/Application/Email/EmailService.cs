@@ -5,7 +5,7 @@ using MimeKit.Text;
 
 namespace JobScheduling.Persistence.Application.Email;
 
-internal sealed class EmailService(IOptions<SmtpSettings> settings, ILogger<EmailService> log)
+internal sealed class EmailService(IOptions<SmtpSettings> settings, ILogger<EmailService> log) : IEmailService
 {
     private readonly SmtpSettings _settings = settings.Value;
     
