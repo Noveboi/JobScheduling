@@ -11,6 +11,7 @@ internal static class UserEndpoints
     {
         var group = app.GetUsersGroup();
 
+        group.MapGet("", GetAllUsers);
         group.MapGet("{id:guid}", GetUser);
         group.MapPost("", AddUser);
     }
@@ -18,6 +19,13 @@ internal static class UserEndpoints
     public static RouteGroupBuilder GetUsersGroup(this IEndpointRouteBuilder app)
     {
         return app.MapGroup("users");
+    }
+
+    private static async Task<List<User>> GetAllUsers(
+        [FromServices] ApplicationDbContext context,
+        CancellationToken ct)
+    {
+        return await context.Users.ToListAsync(ct);
     }
 
     private static async Task<IResult> GetUser(
