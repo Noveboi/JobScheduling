@@ -9,6 +9,13 @@
       MSSQL_SA_PASSWORD: SuperS3curePassword!
     volumes:
       - job-scheduling-mssql:/var/opt/mssql/data
+      
+  email:
+    image: axllent/mailpit
+    restart: unless-stopped
+    ports:
+      - "45654:8025" # Web UI
+      - "45653:1025" # SMTP
         
 volumes:
   job-scheduling-mssql:
