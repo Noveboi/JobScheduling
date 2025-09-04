@@ -20,5 +20,5 @@ internal sealed class UserJob
     /// <summary>
     /// A description of what this job does and how often it does it.
     /// </summary>
-    public required string Description { get; init; }
+    public required string? Description { get; init; }
 }
