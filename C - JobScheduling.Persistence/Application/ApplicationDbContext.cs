@@ -16,7 +16,18 @@ internal sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext
 
         userBuilder.HasKey(x => x.Id);
         userBuilder.Property(x => x.Id).ValueGeneratedNever();
-
         userBuilder.Property(x => x.Name).HasMaxLength(50);
+
+        var userJobBuilder = modelBuilder.Entity<UserJob>();
+
+        userJobBuilder.HasKey(x => x.Id);
+        userJobBuilder.Property(x => x.Id).ValueGeneratedNever();
+        userJobBuilder.Property(x => x.Key).HasMaxLength(100);
+        userJobBuilder.Property(x => x.Description).HasMaxLength(200);
+
+        userJobBuilder
+            .HasOne<User>()
+            .WithMany(u => u.Jobs)
+            .HasForeignKey(x => x.UserId);
     }
 }
