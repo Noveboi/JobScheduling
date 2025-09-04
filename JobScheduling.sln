@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScheduling.GettingStarted", "JobScheduling.GettingStarted\JobScheduling.GettingStarted.csproj", "{EB1A7B82-D100-44D6-9E09-D59A74B9E649}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A - JobScheduling.GettingStarted", "A - JobScheduling.GettingStarted\A - JobScheduling.GettingStarted.csproj", "{EB1A7B82-D100-44D6-9E09-D59A74B9E649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScheduling.RestApi", "JobScheduling.RestApi\JobScheduling.RestApi.csproj", "{6C044FB1-C172-41BC-91A5-33BB8BCAC696}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B - JobScheduling.RestApi", "B - JobScheduling.RestApi\B - JobScheduling.RestApi.csproj", "{6C044FB1-C172-41BC-91A5-33BB8BCAC696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C - JobScheduling.Persistence", "C - JobScheduling.Persistence\C - JobScheduling.Persistence.csproj", "{390E503F-0892-4559-A319-BBF63D80436E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{6C044FB1-C172-41BC-91A5-33BB8BCAC696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C044FB1-C172-41BC-91A5-33BB8BCAC696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C044FB1-C172-41BC-91A5-33BB8BCAC696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390E503F-0892-4559-A319-BBF63D80436E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390E503F-0892-4559-A319-BBF63D80436E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390E503F-0892-4559-A319-BBF63D80436E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390E503F-0892-4559-A319-BBF63D80436E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
