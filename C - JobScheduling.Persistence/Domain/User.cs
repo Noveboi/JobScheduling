@@ -7,6 +7,7 @@ internal sealed class User
 {
     public Guid Id { get; private init;  } = Guid.CreateVersion7();
     public required string Name { get; set; }
+    public required string EmailAddress { get; set; }
 
     /// <summary>
     /// Each user can have one or more jobs associated with them.
